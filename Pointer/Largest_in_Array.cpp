@@ -7,14 +7,20 @@ int main()
     int n;
     cout << " Enter the size of the array: ";
     cin >> n;
-    int a[n];
+    //int a[n];
 
     int *p = new int[n];
+    if (p == NULL)
+    {
+        printf("No memory allocated\n");
+        return 0;
+    }
 
     // Taking INPUT
+    cout<< "Enter the elements of the array: ";
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> *(p+i);
     }
 
     // Checking largest or not
@@ -22,9 +28,9 @@ int main()
     for (int i = 0; i < n; i++)
     {
 
-        if (largest <= a[i])
+        if (largest <= *(p+i))
         {
-            largest = a[i];
+            largest = *(p+i);
         }
     }
 
@@ -34,10 +40,10 @@ int main()
     for (int i = 0; i < n; i++)
     {
 
-        cout << a[i] << " ";
+        cout << *(p+i) << " ";
     }
 
-        // Deallocate the dynamically allocated memory
+    // Deallocate the dynamically allocated memory
     delete[] p;
     return 0;
 }
