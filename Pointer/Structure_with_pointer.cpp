@@ -12,10 +12,9 @@ struct Student
 int main()
 {
     int numStudents;
-    cout << "Enter the number of students: ";
+    cout << "Please, Enter the number of students: ";
     cin >> numStudents;
 
-    //   struct Student *students = (struct Student *)malloc(numStudents * sizeof(struct Student));
     Student *students = new Student[numStudents];
 
     for (int i = 0; i < numStudents; i++)
@@ -46,7 +45,6 @@ int main()
     cout << "ID: " << students[maxIndex].id << endl;
     cout << "CGPA: " << students[maxIndex].cgpa << endl;
 
-    //  free(students);
     delete[] students;
 
     return 0;
