@@ -221,7 +221,7 @@ int main()
         cout << "0. Display Linked list" << endl;
 
         cout << "\n----PLEASE, ENTER A NUMBER TO EXECUTE ANY OPERATION----" << endl;
-        cout << "\n----BUT AT FIRST, CREATE A NEW LINKED LIST ----" << endl;
+        cout << "----BUT AT FIRST, CREATE A NEW LINKED LIST ----" << endl;
 
         cin >> n;
         switch (n)
