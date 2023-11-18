@@ -1,19 +1,23 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int arr[100];
 int top = -1;
 
-bool isEmpty() {
+bool isEmpty()
+{
     return (top == -1);
 }
 
-bool isFull() {
-    return (top ==100 - 1);
+bool isFull()
+{
+    return (top == 100 - 1);
 }
 
-void push(int data) {
-    if (isFull()) {
+void push(int data)
+{
+    if (isFull())
+    {
         cout << "Stack overflow. Cannot push more elements." << endl;
         return;
     }
@@ -22,8 +26,10 @@ void push(int data) {
     arr[top] = data;
 }
 
-int pop() {
-    if (isEmpty()) {
+int pop()
+{
+    if (isEmpty())
+    {
         cout << "Stack underflow. Cannot pop from an empty stack." << endl;
         return -1;
     }
@@ -33,62 +39,49 @@ int pop() {
     return data;
 }
 
-void printStack() {
-    if (isEmpty()) {
+void printStack()
+{
+    if (isEmpty())
+    {
         cout << "Stack is empty." << endl;
         return;
     }
 
     cout << "Current stack: ";
-    for (int i = top; i >= 0; i--) {
-        cout << arr[i] ;
+    for (int i = top; i >= 0; i--)
+    {
+        cout << arr[i];
     }
     cout << endl;
 }
 
-string decimalToBinary(int decimalNumber) {
-    if (decimalNumber == 0) {
+string decimalToBinary(int decimalNumber)
+{
+    if (decimalNumber == 0)
+    {
         return "0";
     }
 
-    string binaryNumber = "";
-    while (decimalNumber > 0) {
+    while (decimalNumber > 0)
+    {
         int remainder = decimalNumber % 2;
-        binaryNumber = to_string(remainder) + binaryNumber;
+        
+        push(remainder);
         decimalNumber /= 2;
     }
-
-    return binaryNumber;
-}
-
-
-string decimal_ToBinary(int decimalNumber) {
-    if (decimalNumber == 0) {
-        return "0";
-    }
-
-    //string binaryNumber = "";
-    while (decimalNumber > 0) {
-        int remainder = decimalNumber % 2;
-        //binaryNumber = to_string(remainder) + binaryNumber;
-        push(remainder) ;
-        decimalNumber /= 2;
-    }
-    printStack() ;
-
-    //return binaryNumber;
-}
-
-
-int main() {
-    int choice, data;
+    printStack();
 
     
-                cout << "Enter a decimal number to convert to binary: ";
-                int decimalNumber;
-                cin >> decimalNumber;
-                cout << "Binary representation: " << decimal_ToBinary(decimalNumber) << endl;
-                
+}
 
-        return 0;
+int main()
+{
+    int choice, data;
+
+    cout << "Enter a decimal number to convert to binary: ";
+    int decimalNumber;
+    cin >> decimalNumber;
+    cout << "Binary representation: " << decimalToBinary(decimalNumber) << endl;
+
+    return 0;
 }
