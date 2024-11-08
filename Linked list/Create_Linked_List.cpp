@@ -16,7 +16,7 @@ void print()
 
     while (curr != NULL)
     {
-        cout << "--->" << curr->val << "  ";
+        cout << curr->val << "  ";
         curr = curr->next;
     }
     cout << endl;
@@ -41,7 +41,6 @@ void create(int n)
             head = curr;
             tail = curr;
         }
-
         else
         {
             tail->next = curr;
