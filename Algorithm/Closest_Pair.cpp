@@ -1,23 +1,11 @@
-
-// A divide and conquer program in C++ to find the smallest distance from a
-// given set of points.
- 
-#include <iostream>
-#include <float.h>
-#include <stdlib.h>
-#include <math.h>
+#include <bits/stdc++.h>
 using namespace std;
- 
-// A structure to represent a Point in 2D plane
+
 struct Point
 {
-    int x, y;
+    double x, y;
 };
- 
- 
-/* Following two functions are needed for library function qsort().
-   Refer: http://www.cplusplus.com/reference/clibrary/cstdlib/qsort/ */
- 
+
 // Needed to sort array of points according to X coordinate
 int compareX(const void* a, const void* b)
 {
@@ -30,7 +18,8 @@ int compareY(const void* a, const void* b)
     Point *p1 = (Point *)a,   *p2 = (Point *)b;
     return (p1->y != p2->y) ? (p1->y - p2->y) : (p1->x - p2->x);
 }
- 
+
+
 // A utility function to find the distance between two points
 float dist(Point p1, Point p2)
 {
@@ -38,7 +27,8 @@ float dist(Point p1, Point p2)
                  (p1.y - p2.y)*(p1.y - p2.y)
                );
 }
- 
+
+
 // A Brute Force method to return the smallest distance between two points
 // in P[] of size n
 float bruteForce(Point P[], int n)
@@ -56,13 +46,7 @@ float min(float x, float y)
 {
     return (x < y)? x : y;
 }
- 
- 
-// A utility function to find the distance between the closest points of
-// strip of a given size. All points in strip[] are sorted according to
-// y coordinate. They all have an upper bound on minimum distance as d.
-// Note that this method seems to be a O(n^2) method, but it's a O(n)
-// method as the inner loop runs at most 6 times
+
 float stripClosest(Point strip[], int size, float d)
 {
     float min = d;  // Initialize the minimum distance as d
@@ -77,10 +61,8 @@ float stripClosest(Point strip[], int size, float d)
  
     return min;
 }
- 
-// A recursive function to find the smallest distance. The array Px contains
-// all points sorted according to x coordinates and Py contains all points
-// sorted according to y coordinates
+
+
 float closestUtil(Point Px[], Point Py[], int n)
 {
     // If there are 2 or 3 points, then use brute force
@@ -104,7 +86,7 @@ float closestUtil(Point Px[], Point Py[], int n)
       else
          Pyr[ri++] = Py[i];
     }
- 
+
     // Consider the vertical line passing through the middle point
     // calculate the smallest distance dl on left of middle point and
     // dr on right side
@@ -126,9 +108,9 @@ float closestUtil(Point Px[], Point Py[], int n)
     // distance is strip[]
     return stripClosest(strip, j, d);
 }
- 
-// The main function that finds the smallest distance
-// This method mainly uses closestUtil()
+
+
+
 float closest(Point P[], int n)
 {
     Point Px[n];
@@ -138,15 +120,18 @@ float closest(Point P[], int n)
         Px[i] = P[i];
         Py[i] = P[i];
     }
- 
+// qsort(Start of the array, Array size, ElementSize, Two array element to a specific relationship like compare)
     qsort(Px, n, sizeof(Point), compareX);
     qsort(Py, n, sizeof(Point), compareY);
  
-    // Use recursive function closestUtil() to find the smallest distance
     return closestUtil(Px, Py, n);
 }
- 
-// Driver program to test above functions
+
+
+
+
+
+
 int main()
 {
     Point P[] = {{2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4}};

@@ -32,15 +32,15 @@ void quick_sort(int A[], int left, int right)
 int main()
 {
     int n = 6;
-    // cout << "Enter the size of the array: " ;
-    // cin >> n ;
-    // int arr[n] ;
-    int A[] = {12, 18, 1, 5, 6, 7};
+     cout << "Enter the size of the array: " ;
+     cin >> n ;
+     int A[n] ;
+    //int A[] = {12, 18, 1, 5, 6, 7};
 
-    // cout << "Enter the array: " ;
+     cout << "Enter the array: " ;
     for (int i = 0; i < n; i++)
     {
-        // cin >> arr[i] ;
+         cin >> A[i] ;
     }
 
     int f = 0;
