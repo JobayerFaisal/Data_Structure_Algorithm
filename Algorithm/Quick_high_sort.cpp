@@ -44,7 +44,7 @@ int main()
     }
 
     int f = 0;
-    int l = n -1 ;
+    int l = n - 1;
     quick_sort(A, 0, l);
 
     cout << "The sorted array is: ";
