@@ -38,7 +38,6 @@ void merge_all(int A[], int left, int mid, int right){
             A[r] = R[q];
             r++; q++;
         }
-
 }
 
 void merge_sort(int A[], int left, int right){
