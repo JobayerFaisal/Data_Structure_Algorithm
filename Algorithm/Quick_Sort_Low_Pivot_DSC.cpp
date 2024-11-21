@@ -8,7 +8,7 @@ int partition(int A[], int left, int right)
 
     for (int i = right; i > left; i--)
     {
-        if (A[i] > p)
+        if (A[i] <= p)
         {
             swap(A[i], A[j]);
             j--;
@@ -29,6 +29,14 @@ void quick_sort(int A[], int left, int right)
     }
 }
 
+void printArray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
+
 int main()
 {
     int n = 6;
@@ -39,11 +47,8 @@ int main()
     int l = n - 1;
     quick_sort(A, 0, l);
 
-    cout << "The sorted array is: ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << A[i] << " ";
-    }
+    cout << "The Descending order of the array is: ";
+    printArray(A,n) ;
 
     return 0;
 }
