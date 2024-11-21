@@ -1,2 +1,2 @@
 # Data_Structure
- Data structure and examples 
+ Data structure and Algorithm Lab work. Practice and tasks.

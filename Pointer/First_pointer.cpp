@@ -1,22 +1,18 @@
-// Your First C++ Program
-
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
 int main()
 {
-
-    int a, b, c;
-    int *p = 0; // It is better to set the pointer value NULL. It helps
-    cout << " Enter Numbers : ";
-    cin >> a >> b;
-
-    c = a + b;
-    p = &c;
-
-    cout << "The Sum is :" << *p << endl;
-    cout << "The Address of Sum :" << p << endl;
-    cout << "The Next Address of Sum is :" << p + 1 << endl; // The output will show mainly P+4, as it takes integer as input as well as 4 bits.
-
-    return 0;
+    int c=0;
+    string s;
+   getline(cin,s);
+   sort(s.begin(),s.end());
+   
+for(int i=0; i<=s.size() ; i++)
+      if(s[i] >='a' && s[i] <='z' && s[i]!=s[i+1])
+        {
+            c++;
+        }
+    
+    cout<< c ;
+        return 0;
 }
