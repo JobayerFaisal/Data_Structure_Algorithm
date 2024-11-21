@@ -53,9 +53,6 @@ void merge_sort(int A[], int left, int right){
 }
 
 
-
-
-
 int main()
 {
   int n = 6; 
