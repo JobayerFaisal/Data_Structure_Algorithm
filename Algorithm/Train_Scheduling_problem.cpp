@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void merge_all(int A[], int left, int mid, int right)
+void merge_all(double A[], int left, int mid, int right)
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
-    int L[n1], R[n2];
+    int L[n1];
+    int R[n2];
 
     for (int i = 0; i < n1; i++)
     {
@@ -21,7 +22,7 @@ void merge_all(int A[], int left, int mid, int right)
 
     while (p < n1 && q < n2)
     {
-        if (L[p] <= R[q])
+        if (L[p] >= R[q])
         {
             A[r] = L[p];
             p++;
@@ -33,14 +34,12 @@ void merge_all(int A[], int left, int mid, int right)
         }
         r++;
     }
-
     while (p < n1)
     {
         A[r] = L[p];
         r++;
         p++;
     }
-
     while (q < n2)
     {
         A[r] = R[q];
@@ -49,11 +48,12 @@ void merge_all(int A[], int left, int mid, int right)
     }
 }
 
-void merge_sort(int A[], int left, int right)
+void merge_sort(double A[], double left, int right)
 {
+    int mid;
     if (left < right)
     {
-        int mid = left + (right - left) / 2;
+        mid = (left + right - 1) / 2;
 
         merge_sort(A, left, mid);
         merge_sort(A, mid + 1, right);
@@ -61,28 +61,39 @@ void merge_sort(int A[], int left, int right)
     }
 }
 
+void printMax(double A[], double D[], int n)
+{
+    int count = 1;
+    int max = 1;
+    int j = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (A[i] >= D[j])
+        {
+            count++;
+            if (count > max)
+                max = count;
+        }
+        else
+        {
+            count--;
+            j++;
+        }
+    }
+    cout << max;
+}
+
 int main()
 {
-    int n = 6;
-    cout << "Enter the size of the array: ";
-    cin >> n;
-    int A[n];
-    // int A[] = { 12, 12, 12, 5, 6, 7 };
+    double A[] = {2.00, 2.10, 3.00, 3.20, 3.50, 5.00};
+    double D[] = {2.30, 3.20, 3.40, 4.00, 4.30, 5.20};
+    int n = sizeof(A) / sizeof(A[0]);
 
-    cout << "Enter the array: ";
-    for (int i = 0; i < n; i++)
-    {
-        cin >> A[i];
-    }
-
-    int f = 0;
-    int l = n - 1;
     merge_sort(A, 0, n - 1);
-    cout << "The sorted array is: ";
-    for (int i = 0; i < n; i++)
-    {
-        cout << A[i] << " ";
-    }
+    merge_sort(D, 0, n - 1);
 
+    cout << "Minimun Platform Required is : ";
+    printMax(A, D, n);
     return 0;
 }
