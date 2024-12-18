@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int knapSack(int W, int WT[], int val[], int n)
+void knapSack(int W, int WT[], int val[], int n)
 {
-    int i, w;
     int DP[n + 1][W + 1];
 
     for (int i = 0; i <= n; i++)
@@ -19,15 +18,32 @@ int knapSack(int W, int WT[], int val[], int n)
         }
     }
 
-    return DP[n][W];
+    cout <<"Max profit: "<< DP[n][W] << endl;
+
+    cout << "Selected Objects are:- \n" ;
+    int weight = W ;
+    for(int i=4; i>0; i--){
+        if(DP[i][W] != DP[i-1][W]){
+            cout <<"Obj: "<< i << endl;
+            weight -= WT[i] ;
+        }
+        
+    }
+
+    //return DP[n][W];
 }
+
+
+
 
 int main()
 {
-    int profit[] = {2, 3, 4, 5};
-    int weight[] = {1, 2, 5, 6};
-    int W = 8;
+    int weight[] = {3,2,5,4};
+    int profit[] = {4,3,6,5};
+    int W = 5;
     int n = 4;
-    cout << knapSack(W, weight, profit, n);
+    knapSack(W, weight, profit, n);
+
+    //cout << knapSack(W, weight, profit, n);
     return 0;
 }
