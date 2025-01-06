@@ -2,7 +2,7 @@
 using namespace std;
 
 
-bool isSubsetSum(vector<int> &arr, int sum) {
+void isSubsetSum(vector<int> &arr, int sum) {
     int n = arr.size();
 
 
@@ -26,18 +26,35 @@ bool isSubsetSum(vector<int> &arr, int sum) {
         }
     }
 
-    return dp[n][sum];
+/*    for (int i = 0; i <= n; i++) {
+      
+        for (int j = 0; j <= sum; j++) {
+            cout <<dp[i][j] << " " ;
+        }
+        cout << endl ;
+    }*/
+
+    if(dp[n][sum])
+        cout << "True";
+    else 
+        cout << "False" ;
 }
+
+
 
 int main() {
 
-    vector<int> arr = {2,1,4,3};
-    int sum = 5;
+    vector<int> arr = {7,3,2,5,8} ;
+    int sum = 14     ;
 
+    /*
     if (isSubsetSum(arr, sum))
         cout << "True" << endl;
     else
         cout << "False" << endl;
+        
+    */
+    isSubsetSum(arr, sum);
 
     return 0;
 }

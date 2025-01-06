@@ -32,6 +32,8 @@ void LC_Str(string s1, string s2) {
         }
     }
 
+    cout << "\nLength of Longest Common Substring is: " << maxLen << endl;
+
     cout << "\nLongest Common Substring is: ";
     if (maxLen > 0) {
         cout << s1.substr(endIndex - maxLen + 1, maxLen) << "\n";
@@ -39,22 +41,21 @@ void LC_Str(string s1, string s2) {
         cout << "No Common Substring\n";
     }
 
-    cout << "\nDP Table:\n";
+/*    cout << "\nDP Table:\n";
     for (int i = 0; i <= m; i++) {
         for (int j = 0; j <= n; j++) {
             cout << DP[i][j] << " ";
         }
         cout << "\n";
-    }
+    }*/
 
-    cout << "\nLength of Longest Common Substring is: " << maxLen << endl;
 }
 
 
 
 int main() {
-    string s1 = "abcxyza";
-    string s2 = "xyzabcb";
+    string s1 = "ABCDGH";
+    string s2 = "ACDGHR";
 
     LC_Str(s1, s2);
     return 0;

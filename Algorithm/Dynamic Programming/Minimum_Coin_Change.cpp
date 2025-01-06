@@ -18,20 +18,33 @@ void count(int coins[], int n, int sum) {
 
             if ((j - coins[i - 1]) >= 0) {
                 dp[i][j] += dp[i][j - coins[i - 1]];
+                // Up + same_row[ col - coin ]
             }
+        }
+    }
+
+/*
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= sum; j++) {
             cout << dp[i][j] << " ";
         }
         cout << "\n";
-    }
+    }*/
+
+   cout << "Total number of subset is : "<< dp[n][sum] << endl ;
+
 }
 
 
 
 
 int main() {
-    int coins[] = {1, 3, 5};
+
+    int coins[] = {1, 2, 3};
+    int sum = 6  ;
+
     int n = sizeof(coins) / sizeof(coins[0]);
-    int sum = 8;
+
 
     count(coins, n, sum);
     return 0;
