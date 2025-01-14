@@ -24,6 +24,14 @@ void LIS(int arr[], int n)
         }
     }
 
+
+    cout<< "DP TABLE: " << endl; 
+    for (int i = 0; i < n; i++)
+    {
+        cout<< DP[i] << " "; 
+    }
+
+    cout<< endl; 
     int maxLength = 0, lastIndex = 0;
     for (int i = 0; i < n; i++)
     {
@@ -53,9 +61,11 @@ void LIS(int arr[], int n)
 
 int main()
 {
-    int arr[] = {5, 2, 8, 6, 3, 6, 9, 7};
-    int n = 8;
+    int arr[] = {0,1,0,3,2,3};
 
+
+
+    int n = sizeof(arr) / sizeof(arr[0]);
     LIS(arr, n);
     return 0;
 }
